@@ -3,21 +3,28 @@ const btnPrivacy = document.getElementById('btnPrivacy');
 
 let currentMode = null; // 'streamer' or 'friends'
 let currentPack = null;
+let currentDareIndex = -1;
 
 function renderHomeScreen() {
     appElement.innerHTML = `
         <div class="screen home-screen active">
-            <h1 class="hero-title">Choose your mode</h1>
+            <h1 class="hero-title">Are You Brave Enough ?<br>Unleash The Dare Packs !</h1>
+            <p class="hero-subtitle">A party game filled with chaotic dares, unexpected moments,<br>and the kind of memories your group will talk about for weeks.</p>
             <div class="mode-buttons">
                 <button class="mode-btn bg-green" onclick="selectMode('streamer')">
+                    <div class="pack-badge trending-badge">Trending</div>
                     <div style="font-size: 4rem; margin-bottom: 10px;">🎙️</div>
                     <h2>Streamer mode</h2>
                     <p>Turn your stream into pure chaos with live dares, chat-triggered moments, and nonstop entertainment.</p>
                 </button>
                 <button class="mode-btn bg-blue" onclick="selectMode('friends')">
+                    <div class="pack-badge trending-badge">Trending</div>
                     <div style="font-size: 4rem; margin-bottom: 10px;">👥</div>
                     <h2>Friends mode</h2>
                     <p>The fastest way to turn a normal hangout into nonstop laughter, chaos, and unforgettable moments.</p>
+                </button>
+                <button class="mode-btn bg-yellow" style="cursor: default;">
+                    <h2 style="font-size: 2.2rem; margin:0;">Coming Soon!</h2>
                 </button>
             </div>
         </div>
@@ -74,6 +81,7 @@ function renderModeScreen() {
 
 function startGame(packIndex) {
     currentPack = currentMode === 'streamer' ? streamerDares[packIndex] : friendsDares[packIndex];
+    currentDareIndex = -1;
     renderGameScreen();
 }
 
@@ -84,51 +92,60 @@ function renderGameScreen() {
         ? 'Turn your stream into pure chaos with live dares, chat-triggered moments, and nonstop entertainment.'
         : 'The fastest way to turn a normal hangout into nonstop laughter, chaos, and unforgettable moments.';
 
-    let daresHtml = currentPack.dares.map((dare, index) => `
-        <div class="dare-card" id="dare-${index}">
-            <div class="dare-number-circle">${index + 1}</div>
-            <div class="dare-title">Dare ${index + 1}</div>
-            <div class="dare-text">${dare}</div>
-            <button class="btn-close-dare" onclick="closeDare(${index})">
-                <span class="icon-box">✖</span> Close dare
-            </button>
-        </div>
-    `).join('');
+    let cardHtml = '';
+
+    if (currentDareIndex === -1) {
+        // Mode Stack Card
+        cardHtml = `
+            <div class="dare-card ${currentPack.color}">
+                <div class="pack-header">
+                    <div class="pack-number">0</div>
+                    <div class="pack-badge">Trending</div>
+                </div>
+                <div class="pack-icon">${modeIcon}</div>
+                <div class="pack-title">${modeTitle}</div>
+                <div class="pack-desc" style="color:#000;">${modeDesc}</div>
+                <button class="btn-start" onclick="nextDare()" style="background:#000; color:#fff; width:180px; margin: 0 auto; border-radius:30px; padding:6px 20px 6px 6px; display:flex; gap:12px;">
+                    <span class="icon-box" style="background:#fff; color:#000;">▶</span> Tap to open
+                </button>
+            </div>
+        `;
+    } else {
+        // Dare Card
+        const dare = currentPack.dares[currentDareIndex];
+        cardHtml = `
+            <div class="dare-card">
+                <div class="dare-number-circle">${currentDareIndex + 1}</div>
+                <div class="dare-title">Dare ${currentDareIndex + 1}</div>
+                <div class="dare-text">${dare}</div>
+                <button class="btn-close-dare" onclick="nextDare()">
+                    <span class="icon-box">✖</span> Close dare
+                </button>
+            </div>
+        `;
+    }
 
     appElement.innerHTML = `
         <div class="screen active">
-            <div class="back-btn-container" style="position: absolute; top: 100px; left: 0;">
+            <div class="back-btn-container" style="position: absolute; top: 20px; left: 20px; z-index: 10;">
                 <button class="btn-back" onclick="renderModeScreen()">
                     <span>↩</span> Back
                 </button>
             </div>
-            <div class="gameplay-screen" style="margin-top: 60px;">
-                <!-- Mode Stack Card -->
-                <div class="dare-card ${currentPack.color}">
-                    <div class="pack-header">
-                        <div class="pack-number">0</div>
-                        <div class="pack-badge">Trending</div>
-                    </div>
-                    <div class="pack-icon">${modeIcon}</div>
-                    <div class="pack-title">${modeTitle}</div>
-                    <div class="pack-desc" style="color:#000;">${modeDesc}</div>
-                    <button class="btn-start" onclick="document.getElementById('dare-0').scrollIntoView({behavior: 'smooth'})">
-                        <span class="icon-box">▶</span> Tap to open
-                    </button>
-                </div>
-                ${daresHtml}
+            <div class="gameplay-screen" style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px; overflow: hidden;">
+                ${cardHtml}
             </div>
         </div>
     `;
 }
 
-function closeDare(index) {
-    const nextDare = document.getElementById(`dare-${index + 1}`);
-    if (nextDare) {
-        nextDare.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'center'});
-    } else {
+function nextDare() {
+    currentDareIndex++;
+    if (currentDareIndex >= currentPack.dares.length) {
         alert("Stack completed! Choose another pack.");
         renderModeScreen();
+    } else {
+        renderGameScreen();
     }
 }
 

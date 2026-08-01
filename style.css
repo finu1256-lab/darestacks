@@ -112,13 +112,22 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 40px;
+    gap: 30px;
+    padding: 40px 20px;
 }
 
 .hero-title {
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
     margin-bottom: 20px;
+    line-height: 1.5;
 }
 
 .mode-buttons {
@@ -127,8 +136,9 @@ body {
 }
 
 .mode-btn {
-    width: 250px;
-    height: 350px;
+    position: relative;
+    width: 320px;
+    height: 320px;
     border-radius: 24px;
     border: none;
     cursor: pointer;
@@ -136,10 +146,17 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     color: #000;
     font-family: inherit;
+    padding: 30px;
+}
+
+.mode-btn .trending-badge {
+    position: absolute;
+    top: 24px;
+    right: 24px;
 }
 
 .mode-btn:hover {
@@ -152,10 +169,10 @@ body {
 }
 
 .mode-btn p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 500;
-    padding: 0 20px;
     opacity: 0.8;
+    line-height: 1.4;
 }
 
 .bg-green { background-color: var(--card-green); }
@@ -331,7 +348,7 @@ body {
 }
 
 .dare-card {
-    min-width: 320px;
+    width: 320px;
     height: 450px;
     background: var(--card-white);
     color: #000;
@@ -342,6 +359,7 @@ body {
     position: relative;
     flex-shrink: 0;
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .dare-card:hover {
