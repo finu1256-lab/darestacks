@@ -91,8 +91,20 @@ function scrollPacks(direction) {
     }
 }
 
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
 function startGame(packIndex) {
-    currentPack = currentMode === 'streamer' ? streamerDares[packIndex] : friendsDares[packIndex];
+    const originalPack = currentMode === 'streamer' ? streamerDares[packIndex] : friendsDares[packIndex];
+    
+    // Copy and shuffle dares so the order is random every time you play
+    currentPack = { ...originalPack, dares: [...originalPack.dares] };
+    shuffleArray(currentPack.dares);
+    
     currentDareIndex = -1;
     renderGameScreen();
 }
