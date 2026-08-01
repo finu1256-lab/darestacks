@@ -17,7 +17,17 @@ const streamerDares = [
             "Pretend to be an airline pilot for 3 minutes.",
             "Only reply to chat with emojis for the next 2 minutes.",
             "Give a passionate review of your mousepad.",
-            "Hum your favorite song until someone in chat guesses it."
+            "Hum your favorite song until someone in chat guesses it.",
+            "Read your last 5 text messages out loud (if safe).",
+            "Pretend you are doing a makeup tutorial for 1 minute.",
+            "Play while balancing something safe on your head.",
+            "Refer to yourself in the third person for 3 minutes.",
+            "Use a fake mustache or drawn-on mustache for the next game.",
+            "Sing your in-game callouts instead of speaking them.",
+            "Compliment every single enemy you see.",
+            "Talk like a pirate for 2 minutes.",
+            "Do a dramatic sigh every time you miss a shot.",
+            "Act like you are casting a magic spell when you attack."
         ]
     },
     {
@@ -38,7 +48,17 @@ const streamerDares = [
             "Pretend you are a medieval knight narrating your quest.",
             "Give your in-game weapon a name and talk to it.",
             "Explain your game strategy using only food metaphors.",
-            "Wear a funny hat or put something silly on your head."
+            "Wear a funny hat or put something silly on your head.",
+            "Let chat pick a word you have to say every 30 seconds.",
+            "Pretend you are a secret agent on a stealth mission.",
+            "Answer a random trivia question from chat before you can reload.",
+            "Hold your breath every time you are in a gunfight.",
+            "Narrate your game as if it's a dramatic anime.",
+            "Pretend to be an angry chef reviewing the game.",
+            "Give a random viewer a shoutout and make up a backstory for them.",
+            "Only move forward and backward, no strafing for 1 minute.",
+            "Do an evil villain laugh every time you score a point.",
+            "Pretend you are incredibly terrified of the game environment."
         ]
     },
     {
@@ -59,7 +79,17 @@ const streamerDares = [
             "Drop your weapon and run away from the first enemy you see.",
             "Let chat pick your background music for the next match.",
             "Do 10 jumping jacks for every time you heal or use an item.",
-            "Pretend to be a telemarketer trying to sell the game to chat."
+            "Pretend to be a telemarketer trying to sell the game to chat.",
+            "No jumping or sprinting for 3 minutes.",
+            "Let chat write a tweet for you (must be safe).",
+            "Do 5 sit-ups for every round you lose.",
+            "Play with your monitor upside down (if possible) or tilted.",
+            "Only use your sidearm/pistol for an entire match.",
+            "Speak in a completely monotone voice for 5 minutes.",
+            "Pretend your character is extremely exhausted and out of breath.",
+            "Thank a random object on your desk every time you win.",
+            "Only look at the ceiling of the map for 30 seconds.",
+            "Do not use any healing items for one game."
         ]
     },
     {
@@ -80,7 +110,17 @@ const streamerDares = [
             "Change your game language to a random one for one round.",
             "Spin in your chair 3 times every time you get a kill.",
             "Pretend you are highly suspicious of every player in the game.",
-            "Sing the chorus of a pop song dramatically."
+            "Sing the chorus of a pop song dramatically.",
+            "Sing the alphabet backwards while in an intense fight.",
+            "Pretend you forgot how to play the game and ask chat for help.",
+            "Act like your character is hopelessly in love with the enemy.",
+            "Yell 'Parkour!' every time you jump.",
+            "Do a 360 spin before every shot you take.",
+            "Pretend to be a weather reporter during the match.",
+            "Change your sensitivity to maximum for 2 minutes.",
+            "Speak only in haikus for the next 3 minutes.",
+            "Pretend you are in a Broadway musical.",
+            "Act like a grumpy old man complaining about modern games."
         ]
     },
     {
@@ -101,7 +141,17 @@ const streamerDares = [
             "Only use melee attacks for one entire round.",
             "Do a 2-minute plank while playing.",
             "Play with minimum screen brightness.",
-            "Let chat dictate every single movement command you make for 1 minute."
+            "Let chat dictate every single movement command you make for 1 minute.",
+            "Play with your mousepad completely backwards.",
+            "Close your eyes for 10 seconds during every firefight.",
+            "Do not use any armor or shields for the whole game.",
+            "Let chat command you when to shoot.",
+            "Play with your hands crossed over each other.",
+            "Only walk backwards for the entire round.",
+            "Do a wall sit for 2 minutes while playing.",
+            "Unbind your reload key for one match.",
+            "Pretend you are playing a racing game.",
+            "Let chat write your victory speech."
         ]
     }
 ];
@@ -125,7 +175,17 @@ const friendsDares = [
             "Pretend you are a statue and don't move for 1 minute.",
             "Speak with a fake British accent for 3 minutes.",
             "High five every person in the room.",
-            "Try to juggle 3 small objects."
+            "Try to juggle 3 small objects.",
+            "Try to lick your elbow for 10 seconds.",
+            "Do your best baby crying impression.",
+            "Speak without moving your lips for 1 minute.",
+            "Give the person to your left a compliment.",
+            "Do a cartwheel (or attempt one safely).",
+            "Pretend to ride a horse around the room.",
+            "Talk like a robot for the next 2 minutes.",
+            "Hold a staring contest with the person across from you.",
+            "Pretend to play an invisible guitar.",
+            "Make the ugliest face you can make."
         ]
     },
     {
@@ -146,7 +206,17 @@ const friendsDares = [
             "Do your best animal impression and let the group guess.",
             "Talk in a high-pitched voice for the next 3 rounds.",
             "Sing everything you say for the next 2 minutes.",
-            "Balance a spoon on your nose for 10 seconds."
+            "Balance a spoon on your nose for 10 seconds.",
+            "Let the group give you a funny nickname for the rest of the game.",
+            "Speak in an entirely made-up language for 1 minute.",
+            "Do 10 burpees right now.",
+            "Pretend you are a fashion model on a runway.",
+            "Let someone draw a mustache on you with a washable marker.",
+            "Sing a nursery rhyme but in a scary voice.",
+            "Try to touch your toes and hold it for 20 seconds.",
+            "Act like a monkey for 30 seconds.",
+            "Let the person to your right restyle your hair.",
+            "Talk with your tongue sticking out for 1 minute."
         ]
     },
     {
@@ -167,7 +237,17 @@ const friendsDares = [
             "Eat a raw slice of onion.",
             "Do 15 pushups right now.",
             "Call a random contact and sing them a song.",
-            "Let the group tickle you for 10 seconds."
+            "Let the group tickle you for 10 seconds.",
+            "Let someone mix two non-alcoholic drinks and drink it.",
+            "Hold an ice cube in your hand until it melts.",
+            "Let the group post a harmless prank status on your phone.",
+            "Wear your clothes inside out for the next 3 rounds.",
+            "Do 30 jumping jacks.",
+            "Pretend to be an alien studying human behavior.",
+            "Let the group tickle you for 15 seconds.",
+            "Eat a plain slice of bread as fast as you can.",
+            "Speak only in whispers for the next 5 rounds.",
+            "Act out a movie scene without talking until someone guesses it."
         ]
     },
     {
@@ -188,7 +268,17 @@ const friendsDares = [
             "Speak only in movie quotes for 5 minutes.",
             "Pretend to be a dog and fetch something.",
             "Let the group mix three safe kitchen liquids for you to drink.",
-            "Act out a famous meme perfectly."
+            "Act out a famous meme perfectly.",
+            "Let the group choose an embarrassing alarm sound for your phone.",
+            "Sing everything you say for the rest of the game.",
+            "Pretend you are an angry customer at a restaurant.",
+            "Let someone blindfold you and feed you a safe snack.",
+            "Walk like a crab for 1 minute.",
+            "Speak in the third person for the rest of the game.",
+            "Do a dramatic interpretive dance.",
+            "Act like you are freezing cold for 2 minutes.",
+            "Let the group choose a word you can't say for the rest of the game.",
+            "Pretend to be a superhero with a terrible superpower."
         ]
     },
     {
@@ -209,7 +299,17 @@ const friendsDares = [
             "Send a funny selfie to a coworker or friend.",
             "Eat a spoonful of hot sauce.",
             "Let someone post a silly photo of you.",
-            "Give your phone to the person on your right for 2 minutes."
+            "Give your phone to the person on your right for 2 minutes.",
+            "Let the group text a random contact a harmless but confusing message.",
+            "Eat a raw piece of garlic.",
+            "Let someone draw a unibrow on you.",
+            "Hold a plank position for as long as you can.",
+            "Drink a glass of water with salt in it.",
+            "Let the group wrap you in toilet paper like a mummy.",
+            "Take a bite of a raw lemon without making a face.",
+            "Let the person to your right send a harmless tweet from your account.",
+            "Wear a blindfold for the next 3 rounds.",
+            "Eat a spoonful of mustard."
         ]
     }
 ];
