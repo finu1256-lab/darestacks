@@ -1,7 +1,7 @@
 const appElement = document.getElementById('app');
 const btnPrivacy = document.getElementById('btnPrivacy');
 
-let currentMode = null; // 'streamer' or 'friends'
+let currentMode = null; // 'streamer' or 'friends' or 'truth_or_dare'
 let currentPack = null;
 let currentDareIndex = -1;
 
@@ -23,8 +23,11 @@ function renderHomeScreen() {
                     <h2>Friends mode</h2>
                     <p>The fastest way to turn a normal hangout into nonstop laughter, chaos, and unforgettable moments.</p>
                 </button>
-                <button class="mode-btn bg-yellow" style="cursor: default;">
-                    <h2 style="font-size: 2.2rem; margin:0;">Coming Soon!</h2>
+                <button class="mode-btn bg-yellow" onclick="selectMode('truth_or_dare')">
+                    <div class="pack-badge trending-badge">Trending</div>
+                    <div style="font-size: 4rem; margin-bottom: 10px;">🎭</div>
+                    <h2>Truth or Dare</h2>
+                    <p>The classic game reimagined. Choose: answer the brutal truth, or do the chaotic dare.</p>
                 </button>
             </div>
         </div>
@@ -37,12 +40,27 @@ function selectMode(mode) {
 }
 
 function renderModeScreen() {
-    const packs = currentMode === 'streamer' ? streamerDares : friendsDares;
-    const modeTitle = currentMode === 'streamer' ? 'Streamer mode' : 'Friends mode';
-    const modeIcon = currentMode === 'streamer' ? '🎙️' : '👥';
-    const modeDesc = currentMode === 'streamer' 
-        ? 'Turn your stream into pure chaos with live dares, chat-triggered moments, and nonstop entertainment.'
-        : 'The fastest way to turn a normal hangout into nonstop laughter, chaos, and unforgettable moments.';
+    let packs;
+    let modeTitle;
+    let modeIcon;
+    let modeDesc;
+
+    if (currentMode === 'streamer') {
+        packs = streamerDares;
+        modeTitle = 'Streamer mode';
+        modeIcon = '🎙️';
+        modeDesc = 'Turn your stream into pure chaos with live dares, chat-triggered moments, and nonstop entertainment.';
+    } else if (currentMode === 'friends') {
+        packs = friendsDares;
+        modeTitle = 'Friends mode';
+        modeIcon = '👥';
+        modeDesc = 'The fastest way to turn a normal hangout into nonstop laughter, chaos, and unforgettable moments.';
+    } else if (currentMode === 'truth_or_dare') {
+        packs = truthOrDareDares;
+        modeTitle = 'Truth or Dare';
+        modeIcon = '🎭';
+        modeDesc = 'The classic game reimagined. Pull a card and make your choice: answer the brutal truth or do the chaotic dare.';
+    }
         
     let packsHtml = packs.map((pack, index) => `
         <div class="pack-card ${pack.color}" onclick="startGame(${index})">
@@ -99,7 +117,14 @@ function shuffleArray(array) {
 }
 
 function startGame(packIndex) {
-    const originalPack = currentMode === 'streamer' ? streamerDares[packIndex] : friendsDares[packIndex];
+    let originalPack;
+    if (currentMode === 'streamer') {
+        originalPack = streamerDares[packIndex];
+    } else if (currentMode === 'friends') {
+        originalPack = friendsDares[packIndex];
+    } else if (currentMode === 'truth_or_dare') {
+        originalPack = truthOrDareDares[packIndex];
+    }
     
     // Copy and shuffle dares so the order is random every time you play
     let shuffledDares = [...originalPack.dares];
@@ -115,11 +140,23 @@ function startGame(packIndex) {
 }
 
 function renderGameScreen() {
-    const modeTitle = currentMode === 'streamer' ? 'Streamer mode' : 'Friends mode';
-    const modeIcon = currentMode === 'streamer' ? '🎙️' : '👥';
-    const modeDesc = currentMode === 'streamer' 
-        ? 'Turn your stream into pure chaos with live dares, chat-triggered moments, and nonstop entertainment.'
-        : 'The fastest way to turn a normal hangout into nonstop laughter, chaos, and unforgettable moments.';
+    let modeTitle;
+    let modeIcon;
+    let modeDesc;
+
+    if (currentMode === 'streamer') {
+        modeTitle = 'Streamer mode';
+        modeIcon = '🎙️';
+        modeDesc = 'Turn your stream into pure chaos with live dares, chat-triggered moments, and nonstop entertainment.';
+    } else if (currentMode === 'friends') {
+        modeTitle = 'Friends mode';
+        modeIcon = '👥';
+        modeDesc = 'The fastest way to turn a normal hangout into nonstop laughter, chaos, and unforgettable moments.';
+    } else if (currentMode === 'truth_or_dare') {
+        modeTitle = 'Truth or Dare';
+        modeIcon = '🎭';
+        modeDesc = 'The classic game reimagined. Pull a card and make your choice: answer the brutal truth or do the chaotic dare.';
+    }
 
     let cardHtml = '';
 

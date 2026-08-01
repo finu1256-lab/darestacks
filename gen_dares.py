@@ -105,6 +105,46 @@ f_extreme_actions = [
     "Toilet paper mummy", "Bite raw lemon", "Harmless tweet", "Wear blindfold", "Spoonful of mustard"
 ]
 
+# Base components for Truth or Dare Mode
+t_easy_truths = [
+    "What is your biggest fear?", "Who was your first crush?", "What is the most embarrassing thing in your room?",
+    "Have you ever lied to get out of trouble?", "What is a secret you kept from your parents?",
+    "What is the most awkward text you've ever sent?", "Have you ever blamed a fart on someone else?",
+    "What is your weirdest habit?", "What is the most childish thing you still do?", "Who is your favorite person here?",
+    "What is your worst habit?", "What is your most embarrassing moment?", "Have you ever cheated on a test?",
+    "What is the longest you've gone without showering?", "What is your biggest regret?",
+    "What is the most embarrassing music you listen to?", "Have you ever stolen anything?",
+    "What is the biggest lie you've ever told?", "Have you ever peed in a pool?", "What is your strangest phobia?"
+]
+
+t_med_truths = [
+    "Have you ever read someone else's text messages?", "What is the most trouble you've ever been in?",
+    "Who is the last person you stalked on social media?", "What is the most embarrassing thing you've bought?",
+    "Have you ever practiced kissing in a mirror?", "What is the weirdest dream you've ever had?",
+    "Who do you have a secret crush on?", "What is the most embarrassing photo of you?",
+    "Have you ever been caught in a lie?", "What is a rumor you spread?", "What is your most embarrassing nickname?",
+    "Have you ever lied about your age?", "What is the worst date you've ever been on?",
+    "Have you ever fake-cried to get something?", "What is the most embarrassing thing you've searched on Google?"
+]
+
+t_hard_truths = [
+    "What is the meanest thing you've ever done to someone?", "Have you ever stolen from a friend?",
+    "What is a secret you swore you would never tell?", "Who in this room do you find the most attractive?",
+    "Have you ever been fired from a job?", "What is the most illegal thing you've ever done?",
+    "What is the biggest mistake you've ever made?", "Have you ever ruined a surprise party?",
+    "What is the worst thing you've ever said to someone?", "Have you ever ghosted someone?",
+    "What is the most embarrassing thing you've done for love?", "Have you ever snooped through someone's room?",
+    "What is the biggest lie you are telling right now?", "Have you ever broken something and blamed someone else?"
+]
+
+def generate_tod_dares(truths, actions, count=100):
+    tod_dares = set()
+    while len(tod_dares) < count:
+        truth = random.choice(truths)
+        dare = random.choice(actions)
+        tod_dares.add(f"TRUTH: {truth}<br><br>DARE: {dare}.")
+    return list(tod_dares)
+
 def generate_dares(actions, durations, count=100):
     dares = set()
     while len(dares) < count:
@@ -139,6 +179,14 @@ friends_data = [
     ("Extreme", "bg-blue", generate_dares(f_extreme_actions, ["for 1 minute", "for 2 rounds", "until the game ends"]))
 ]
 
+tod_data = [
+    ("Easy", "bg-green", generate_tod_dares(t_easy_truths, f_easy_actions)),
+    ("Medium", "bg-blue", generate_tod_dares(t_med_truths, f_med_actions)),
+    ("Hard", "bg-yellow", generate_tod_dares(t_hard_truths, f_hard_actions)),
+    ("Chaos", "bg-green", generate_tod_dares(t_med_truths, f_chaos_actions)),
+    ("Extreme", "bg-blue", generate_tod_dares(t_hard_truths, f_extreme_actions))
+]
+
 def format_pack(mode_data):
     packs = []
     for title, color, dares in mode_data:
@@ -159,6 +207,10 @@ js_content = f"""const streamerDares = [
 
 const friendsDares = [
 {format_pack(friends_data)}
+];
+
+const truthOrDareDares = [
+{format_pack(tod_data)}
 ];
 
 const privacyPolicy = `
@@ -189,4 +241,4 @@ const privacyPolicy = `
 with open("data.js", "w", encoding="utf-8") as f:
     f.write(js_content)
 
-print("Generated data.js with 1000 dares (100 per pack).")
+print("Generated data.js with 1500 dares (100 per pack across 3 modes).")
