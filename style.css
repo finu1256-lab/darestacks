@@ -1,0 +1,459 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #0d0d0d;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --card-green: #9dfb78;
+    --card-blue: #7adcfb;
+    --card-yellow: #fef866;
+    --card-white: #fdf9e8;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.nav-button {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.nav-button:hover {
+    transform: scale(1.05);
+    background-color: #f0f0f0;
+}
+
+.back-btn-container {
+    padding: 20px 40px 0;
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    gap: 8px;
+    transition: transform 0.2s;
+}
+.btn-back:hover {
+    transform: scale(1.05);
+}
+
+/* App Container */
+#app {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+}
+
+/* Screens */
+.screen {
+    display: none;
+    flex: 1;
+    flex-direction: column;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+.screen.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Home Screen */
+.home-screen {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 40px;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.mode-buttons {
+    display: flex;
+    gap: 30px;
+}
+
+.mode-btn {
+    width: 250px;
+    height: 350px;
+    border-radius: 24px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: #000;
+    font-family: inherit;
+}
+
+.mode-btn:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+.mode-btn h2 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.mode-btn p {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0 20px;
+    opacity: 0.8;
+}
+
+.bg-green { background-color: var(--card-green); }
+.bg-blue { background-color: var(--card-blue); }
+.bg-yellow { background-color: var(--card-yellow); }
+
+/* Selection Screen */
+.selection-header {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.selection-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.selection-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-nav {
+    position: absolute;
+    top: -50px;
+    right: 40px;
+    display: flex;
+    gap: 10px;
+}
+
+.carousel-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: #fff;
+    color: #000;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.carousel-btn:hover {
+    transform: scale(1.1);
+}
+
+.packs-list {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    padding: 20px 0;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    width: 100%;
+}
+.packs-list::-webkit-scrollbar {
+    display: none;
+}
+
+.pack-card {
+    min-width: 300px;
+    height: 420px;
+    border-radius: 24px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    color: #000;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.pack-card:hover {
+    transform: translateY(-5px);
+}
+
+.pack-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.pack-number {
+    width: 24px;
+    height: 24px;
+    background: #000;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.pack-badge {
+    background: #000;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.pack-icon {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.pack-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.pack-desc {
+    font-size: 0.9rem;
+    text-align: center;
+    opacity: 0.8;
+    font-weight: 500;
+    margin-bottom: auto;
+    line-height: 1.4;
+}
+
+.btn-start {
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 14px;
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    transition: background 0.2s;
+}
+
+.btn-start:hover {
+    background: #f0f0f0;
+}
+
+/* Gameplay Screen */
+.gameplay-screen {
+    padding: 40px;
+    flex-direction: row;
+    gap: 30px;
+    overflow-x: auto;
+    align-items: center;
+    scrollbar-width: none;
+}
+.gameplay-screen::-webkit-scrollbar {
+    display: none;
+}
+
+.dare-card {
+    min-width: 320px;
+    height: 450px;
+    background: var(--card-white);
+    color: #000;
+    border-radius: 24px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex-shrink: 0;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dare-card:hover {
+    transform: scale(1.02);
+}
+
+.dare-number-circle {
+    width: 24px;
+    height: 24px;
+    background: #000;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.dare-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: -0.5px;
+}
+
+.dare-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: auto;
+    line-height: 1.5;
+    padding: 0 10px;
+}
+
+.btn-close-dare {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 6px 20px 6px 6px;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: max-content;
+    margin: 0 auto;
+    transition: transform 0.2s;
+}
+
+.btn-close-dare:hover {
+    transform: scale(1.02);
+}
+
+.icon-box {
+    background: #fff;
+    color: #000;
+    border-radius: 12px;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* Privacy Screen */
+.privacy-screen {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.privacy-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.privacy-content h3 {
+    font-size: 1.2rem;
+    margin: 20px 0 10px;
+}
+
+.privacy-content p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding: 20px;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .mode-buttons {
+        flex-direction: column;
+    }
+    .selection-title {
+        font-size: 2.5rem;
+    }
+}
