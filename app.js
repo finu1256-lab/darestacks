@@ -102,8 +102,13 @@ function startGame(packIndex) {
     const originalPack = currentMode === 'streamer' ? streamerDares[packIndex] : friendsDares[packIndex];
     
     // Copy and shuffle dares so the order is random every time you play
-    currentPack = { ...originalPack, dares: [...originalPack.dares] };
-    shuffleArray(currentPack.dares);
+    let shuffledDares = [...originalPack.dares];
+    shuffleArray(shuffledDares);
+    
+    // Only take 25 dares out of the 100 available in the pack pool
+    shuffledDares = shuffledDares.slice(0, 25);
+    
+    currentPack = { ...originalPack, dares: shuffledDares };
     
     currentDareIndex = -1;
     renderGameScreen();
