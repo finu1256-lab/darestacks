@@ -475,31 +475,6 @@ body {
         font-size: 2.5rem;
 }
 
-/* Ad Banner */
-.ad-banner {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    background-color: var(--bg-color);
-    margin-bottom: 50px; /* Space for the fixed footer */
-    z-index: 90;
-}
-
-.banner-img {
-    width: 300px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 4px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
-    display: block;
-}
-
-.banner-img:hover {
-    transform: scale(1.02);
-}
-
 /* Footer */
 .footer {
     position: fixed;
