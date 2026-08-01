@@ -12,7 +12,12 @@ const streamerDares = [
             "Only whisper for 3 minutes.",
             "Pretend your keyboard is broken.",
             "Use only one hand for 5 minutes.",
-            "End every sentence with \"Trust me.\""
+            "End every sentence with \"Trust me.\"",
+            "Do a 10-second staring contest with the camera.",
+            "Pretend to be an airline pilot for 3 minutes.",
+            "Only reply to chat with emojis for the next 2 minutes.",
+            "Give a passionate review of your mousepad.",
+            "Hum your favorite song until someone in chat guesses it."
         ]
     },
     {
@@ -28,7 +33,12 @@ const streamerDares = [
             "Talk in slow motion.",
             "Fake an interview with yourself.",
             "Narrate everything you're doing.",
-            "Use a fake accent for 10 minutes."
+            "Use a fake accent for 10 minutes.",
+            "Play the next round with your mouse in your non-dominant hand.",
+            "Pretend you are a medieval knight narrating your quest.",
+            "Give your in-game weapon a name and talk to it.",
+            "Explain your game strategy using only food metaphors.",
+            "Wear a funny hat or put something silly on your head."
         ]
     },
     {
@@ -44,7 +54,12 @@ const streamerDares = [
             "Let chat mute your microphone randomly.",
             "Act like the game is a horror movie.",
             "Pretend you're a famous commentator.",
-            "Thank your chair after every round."
+            "Thank your chair after every round.",
+            "No speaking English for 5 minutes.",
+            "Drop your weapon and run away from the first enemy you see.",
+            "Let chat pick your background music for the next match.",
+            "Do 10 jumping jacks for every time you heal or use an item.",
+            "Pretend to be a telemarketer trying to sell the game to chat."
         ]
     },
     {
@@ -60,7 +75,12 @@ const streamerDares = [
             "Narrate in sports commentary style.",
             "Let chat decide your sensitivity.",
             "Play with one eye closed.",
-            "Say \"Skill issue\" after every mistake."
+            "Say \"Skill issue\" after every mistake.",
+            "Narrate your game like a nature documentary.",
+            "Change your game language to a random one for one round.",
+            "Spin in your chair 3 times every time you get a kill.",
+            "Pretend you are highly suspicious of every player in the game.",
+            "Sing the chorus of a pop song dramatically."
         ]
     },
     {
@@ -76,7 +96,12 @@ const streamerDares = [
             "No sprinting.",
             "Let chat pick your challenge.",
             "Survive one round without attacking.",
-            "Do a dramatic victory speech after losing."
+            "Do a dramatic victory speech after losing.",
+            "Play blindfolded for 30 seconds.",
+            "Only use melee attacks for one entire round.",
+            "Do a 2-minute plank while playing.",
+            "Play with minimum screen brightness.",
+            "Let chat dictate every single movement command you make for 1 minute."
         ]
     }
 ];
@@ -95,7 +120,12 @@ const friendsDares = [
             "Hop on one foot for 20 seconds.",
             "Compliment everyone.",
             "Sing Happy Birthday dramatically.",
-            "Walk like a model."
+            "Walk like a model.",
+            "Give a dramatic reading of a random text message.",
+            "Pretend you are a statue and don't move for 1 minute.",
+            "Speak with a fake British accent for 3 minutes.",
+            "High five every person in the room.",
+            "Try to juggle 3 small objects."
         ]
     },
     {
@@ -111,7 +141,12 @@ const friendsDares = [
             "Speak only in questions.",
             "Tell a joke until someone laughs.",
             "Copy the person next to you.",
-            "Do your best movie scene."
+            "Do your best movie scene.",
+            "Let someone else write a status on your social media.",
+            "Do your best animal impression and let the group guess.",
+            "Talk in a high-pitched voice for the next 3 rounds.",
+            "Sing everything you say for the next 2 minutes.",
+            "Balance a spoon on your nose for 10 seconds."
         ]
     },
     {
@@ -127,7 +162,12 @@ const friendsDares = [
             "Speak in an alien language.",
             "Pretend you're invisible.",
             "Walk backwards for one minute.",
-            "Narrate everyone else's actions."
+            "Narrate everyone else's actions.",
+            "Let the person to your left draw something on your arm with a pen.",
+            "Eat a raw slice of onion.",
+            "Do 15 pushups right now.",
+            "Call a random contact and sing them a song.",
+            "Let the group tickle you for 10 seconds."
         ]
     },
     {
@@ -143,7 +183,12 @@ const friendsDares = [
             "Wear sunglasses indoors.",
             "Walk like a penguin.",
             "Do your best evil laugh.",
-            "Speak like a pirate."
+            "Speak like a pirate.",
+            "Switch socks with someone else for the rest of the game.",
+            "Speak only in movie quotes for 5 minutes.",
+            "Pretend to be a dog and fetch something.",
+            "Let the group mix three safe kitchen liquids for you to drink.",
+            "Act out a famous meme perfectly."
         ]
     },
     {
@@ -151,7 +196,7 @@ const friendsDares = [
         color: "bg-blue",
         dares: [
             "Let the group choose your phone wallpaper for a day.",
-            "Let someone send an emoji from your phone (with your permission).",
+            "Let someone send an emoji from your phone.",
             "Hold a funny pose for 2 minutes.",
             "Eat something blindfolded (safe foods only).",
             "Imitate everyone's laugh.",
@@ -159,7 +204,12 @@ const friendsDares = [
             "Wear a funny accessory until the game ends.",
             "Let the winner assign your next dare.",
             "Take a silly group selfie.",
-            "Create a victory speech for the loser."
+            "Create a victory speech for the loser.",
+            "Let the group give you a new crazy hairstyle.",
+            "Send a funny selfie to a coworker or friend.",
+            "Eat a spoonful of hot sauce.",
+            "Let someone post a silly photo of you.",
+            "Give your phone to the person on your right for 2 minutes."
         ]
     }
 ];

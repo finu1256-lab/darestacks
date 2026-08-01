@@ -66,17 +66,29 @@ function renderModeScreen() {
                     <span>↩</span> Back
                 </button>
             </div>
-            <div class="selection-header">
+            <div class="selection-header" style="position: relative;">
                 <h1 class="selection-title">${modeTitle}</h1>
                 <p class="selection-subtitle">Choose a dare stack below and let the chaos begin</p>
+                <div class="carousel-nav" style="position: absolute; right: 40px; top: 50%; transform: translateY(-50%); display: flex; gap: 10px;">
+                    <button class="carousel-btn" onclick="scrollPacks(-1)">❮</button>
+                    <button class="carousel-btn" onclick="scrollPacks(1)">❯</button>
+                </div>
             </div>
             <div class="carousel-container">
-                <div class="packs-list">
+                <div class="packs-list" id="packsList">
                     ${packsHtml}
                 </div>
             </div>
         </div>
     `;
+}
+
+function scrollPacks(direction) {
+    const list = document.getElementById('packsList');
+    if (list) {
+        const cardWidth = 330; // 300px width + 30px gap
+        list.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+    }
 }
 
 function startGame(packIndex) {
