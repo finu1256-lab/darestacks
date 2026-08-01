@@ -4,6 +4,7 @@ const btnPrivacy = document.getElementById('btnPrivacy');
 let currentMode = null; // 'streamer' or 'friends' or 'truth_or_dare'
 let currentPack = null;
 let currentDareIndex = -1;
+let currentToDChoice = null;
 
 function renderHomeScreen() {
     appElement.innerHTML = `
@@ -136,6 +137,12 @@ function startGame(packIndex) {
     currentPack = { ...originalPack, dares: shuffledDares };
     
     currentDareIndex = -1;
+    currentToDChoice = null;
+    renderGameScreen();
+}
+
+function selectToD(choice) {
+    currentToDChoice = choice;
     renderGameScreen();
 }
 
@@ -179,16 +186,45 @@ function renderGameScreen() {
     } else {
         // Dare Card
         const dare = currentPack.dares[currentDareIndex];
-        cardHtml = `
-            <div class="dare-card">
-                <div class="dare-number-circle">${currentDareIndex + 1}</div>
-                <div class="dare-title">Dare ${currentDareIndex + 1}</div>
-                <div class="dare-text">${dare}</div>
-                <button class="btn-close-dare" onclick="nextDare()">
-                    <span class="icon-box">✖</span> Close dare
-                </button>
-            </div>
-        `;
+        
+        if (currentMode === 'truth_or_dare' && !currentToDChoice) {
+            cardHtml = `
+                <div class="dare-card">
+                    <div class="dare-number-circle">${currentDareIndex + 1}</div>
+                    <div class="dare-title">Pick Your Poison</div>
+                    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:20px; align-items:center;">
+                        <button onclick="selectToD('truth')" style="width:100%; padding:20px; border-radius:16px; border:none; background:var(--card-green); color:#000; font-size:1.8rem; font-weight:800; cursor:pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">TRUTH</button>
+                        <h2 style="font-size: 1.2rem; color: #888;">OR</h2>
+                        <button onclick="selectToD('dare')" style="width:100%; padding:20px; border-radius:16px; border:none; background:var(--card-yellow); color:#000; font-size:1.8rem; font-weight:800; cursor:pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">DARE</button>
+                    </div>
+                </div>
+            `;
+        } else {
+            let textToShow = dare;
+            let titleText = `Dare ${currentDareIndex + 1}`;
+            
+            if (currentMode === 'truth_or_dare') {
+                const parts = dare.split('<br><br>');
+                if (currentToDChoice === 'truth') {
+                    textToShow = parts[0].replace('TRUTH: ', '');
+                    titleText = 'Truth';
+                } else if (currentToDChoice === 'dare') {
+                    textToShow = parts[1].replace('DARE: ', '');
+                    titleText = 'Dare';
+                }
+            }
+
+            cardHtml = `
+                <div class="dare-card">
+                    <div class="dare-number-circle">${currentDareIndex + 1}</div>
+                    <div class="dare-title">${titleText}</div>
+                    <div class="dare-text">${textToShow}</div>
+                    <button class="btn-close-dare" onclick="nextDare()">
+                        <span class="icon-box">✖</span> Close card
+                    </button>
+                </div>
+            `;
+        }
     }
 
     appElement.innerHTML = `
@@ -207,6 +243,7 @@ function renderGameScreen() {
 
 function nextDare() {
     currentDareIndex++;
+    currentToDChoice = null;
     if (currentDareIndex >= currentPack.dares.length) {
         alert("Stack completed! Choose another pack.");
         renderModeScreen();
