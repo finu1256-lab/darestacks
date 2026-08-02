@@ -187,6 +187,74 @@ tod_data = [
     ("Extreme", "bg-blue", generate_tod_dares(t_hard_truths, f_extreme_actions))
 ]
 
+w_easy = [
+    "speak in rhymes", "sing what you say", "sweat maple syrup", "have spaghetti for hair",
+    "wear wet socks forever", "wear shoes two sizes too small", "have an itchy nose", 
+    "have a watery eye", "eat a raw potato", "eat a whole lemon", "whisper everything", 
+    "shout everything", "walk backwards everywhere", "run everywhere", "lose the ability to read",
+    "lose the ability to speak", "have a unibrow", "have no eyebrows", "smell like onions", 
+    "smell like garlic", "have a tail", "have horns", "be completely bald", "be completely hairy",
+    "hop everywhere", "crawl everywhere"
+]
+
+w_med = [
+    "drop your phone in a toilet", "text your boss an inappropriate joke", "wear clothes inside out for a year",
+    "wear clothes backwards for a year", "feel like you have to sneeze constantly", "feel like you have to hiccup constantly",
+    "eat a spoonful of mustard", "eat a spoonful of mayonnaise", "give up your smartphone",
+    "give up your computer", "listen to the same song forever", "never hear music again",
+    "sleep on the floor", "sleep standing up", "drink spoiled milk", "eat moldy cheese",
+    "always be 10 minutes late", "always be 20 minutes early", "run a mile when you cry", "do 50 pushups when you laugh",
+    "only be able to use a fork", "only be able to use a spoon", "like an ex's old photo accidentally", "send a screenshot to the wrong person"
+]
+
+w_hard = [
+    "have your browsing history published", "have your text messages published", "eat a live spider",
+    "eat a dead cockroach", "fight a bear", "fight a shark", "lose all your money",
+    "lose all your memories", "live in a haunted house", "live in a rat-infested house",
+    "wear a clown suit every day", "wear a chicken suit every day", "drink water from a puddle",
+    "eat gum from under a desk", "say 'I love you' to your boss", "say 'I love you' to a stranger",
+    "walk barefoot on hot coals", "walk barefoot on glass", "have your teeth fall out", "have your hair fall out",
+    "be stuck in an elevator with your ex", "be stuck in an elevator with your enemy", "eat a bowl of worms", "eat a bowl of crickets"
+]
+
+w_chaos = [
+    "scream every time you see a dog", "cry every time you see a cat", "swap bodies with your pet",
+    "swap bodies with your worst enemy", "have fingers for toes", "have toes for fingers",
+    "dance every time you hear music", "sing every time someone speaks to you", "be chased by angry bees",
+    "be chased by wild dogs", "eat a raw onion like an apple", "eat a stick of butter",
+    "have a horn on your forehead", "have a tail you can't control", "speak in a baby voice forever",
+    "speak in an old man voice forever", "lick a public toilet seat", "lick a public trash can",
+    "be constantly covered in glitter", "be constantly sticky", "wear wet socks every day", "wear a wet shirt every day",
+    "always smell like garbage", "always smell like wet dog"
+]
+
+w_extreme = [
+    "tell your biggest secret to everyone", "have everyone tell you their secret",
+    "be stranded on a desert island alone", "be stranded with someone you hate",
+    "amputate your own arm", "amputate your own leg",
+    "be blind", "be deaf", "have no arms", "have no legs",
+    "eat human flesh", "eat animal feces", "be possessed by a demon", "be abducted by aliens",
+    "live in a prison", "live in a mental asylum", "kill an innocent person", "let ten guilty people go free",
+    "lose the ability to love", "lose the ability to be loved", "have a constant migraine", "have a constant toothache",
+    "be burned alive", "be buried alive"
+]
+
+def generate_wyr(pool, punishments, count=100):
+    dares = set()
+    while len(dares) < count:
+        a, b = random.sample(pool, 2)
+        punishment = random.choice(punishments)
+        dares.add(f"Would you rather {a}, OR {b}?<br><br><strong style='color:#d32f2f;'>PUNISHMENT IF YOU REFUSE:</strong> {punishment}.")
+    return list(dares)
+
+wyr_data = [
+    ("Easy", "bg-green", generate_wyr(w_easy, f_easy_actions)),
+    ("Medium", "bg-blue", generate_wyr(w_med, f_med_actions)),
+    ("Hard", "bg-yellow", generate_wyr(w_hard, f_hard_actions)),
+    ("Chaos", "bg-green", generate_wyr(w_chaos, f_chaos_actions)),
+    ("Extreme", "bg-blue", generate_wyr(w_extreme, f_extreme_actions))
+]
+
 def format_pack(mode_data):
     packs = []
     for title, color, dares in mode_data:
@@ -211,6 +279,10 @@ const friendsDares = [
 
 const truthOrDareDares = [
 {format_pack(tod_data)}
+];
+
+const wouldYouRatherDares = [
+{format_pack(wyr_data)}
 ];
 
 const privacyPolicy = `
@@ -241,4 +313,4 @@ const privacyPolicy = `
 with open("data.js", "w", encoding="utf-8") as f:
     f.write(js_content)
 
-print("Generated data.js with 1500 dares (100 per pack across 3 modes).")
+print("Generated data.js with 2000 dares (100 per pack across 4 modes).")

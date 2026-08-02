@@ -30,6 +30,12 @@ function renderHomeScreen() {
                     <h2>Truth or Dare</h2>
                     <p>The classic game reimagined. Choose: answer the brutal truth, or do the chaotic dare.</p>
                 </button>
+                <button class="mode-btn bg-green" onclick="selectMode('would_you_rather')">
+                    <div class="pack-badge trending-badge">Trending</div>
+                    <div style="font-size: 4rem; margin-bottom: 10px;">🤔</div>
+                    <h2>Would You Rather</h2>
+                    <p>Two terrible options. One impossible choice. The group decides what you will pick.</p>
+                </button>
             </div>
         </div>
     `;
@@ -61,6 +67,11 @@ function renderModeScreen() {
         modeTitle = 'Truth or Dare';
         modeIcon = '🎭';
         modeDesc = 'The classic game reimagined. Pull a card and make your choice: answer the brutal truth or do the chaotic dare.';
+    } else if (currentMode === 'would_you_rather') {
+        packs = wouldYouRatherDares;
+        modeTitle = 'Would You Rather';
+        modeIcon = '🤔';
+        modeDesc = 'Two terrible options. One impossible choice. The group decides what you will pick.';
     }
         
     let packsHtml = packs.map((pack, index) => `
@@ -125,6 +136,8 @@ function startGame(packIndex) {
         originalPack = friendsDares[packIndex];
     } else if (currentMode === 'truth_or_dare') {
         originalPack = truthOrDareDares[packIndex];
+    } else if (currentMode === 'would_you_rather') {
+        originalPack = wouldYouRatherDares[packIndex];
     }
     
     // Copy and shuffle dares so the order is random every time you play
@@ -163,6 +176,10 @@ function renderGameScreen() {
         modeTitle = 'Truth or Dare';
         modeIcon = '🎭';
         modeDesc = 'The classic game reimagined. Pull a card and make your choice: answer the brutal truth or do the chaotic dare.';
+    } else if (currentMode === 'would_you_rather') {
+        modeTitle = 'Would You Rather';
+        modeIcon = '🤔';
+        modeDesc = 'Two terrible options. One impossible choice. The group decides what you will pick.';
     }
 
     let cardHtml = '';
@@ -212,6 +229,8 @@ function renderGameScreen() {
                     textToShow = parts[1].replace('DARE: ', '');
                     titleText = 'Dare';
                 }
+            } else if (currentMode === 'would_you_rather') {
+                titleText = 'Dilemma';
             }
 
             cardHtml = `
