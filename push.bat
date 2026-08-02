@@ -1,6 +1,8 @@
 @echo off
+set /p msg="Enter commit message: "
+if "%msg%"=="" set msg=Update
 git add .
-git commit -m "Update Dare UI to show one card at a time"
+git commit -m "%msg%"
 git push -u origin main
 echo Push complete!
 pause
