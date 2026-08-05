@@ -239,7 +239,7 @@ function renderGameScreen() {
                     <div class="dare-title">${titleText}</div>
                     <div class="dare-text">${textToShow}</div>
                     <button class="btn-close-dare" onclick="nextDare()">
-                        <span class="icon-box">✖</span> Close card
+                        <span class="icon-box">➔</span> Next card
                     </button>
                 </div>
             `;
