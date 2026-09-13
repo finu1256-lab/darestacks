@@ -144,8 +144,11 @@ function startGame(packIndex) {
     let shuffledDares = [...originalPack.dares];
     shuffleArray(shuffledDares);
     
-    // Only take 25 dares out of the 100 available in the pack pool
+    // Randomly select 25 dares from the 100 available in the pack pool
     shuffledDares = shuffledDares.slice(0, 25);
+
+    // Play only 10 cards per session
+    shuffledDares = shuffledDares.slice(0, 10);
     
     currentPack = { ...originalPack, dares: shuffledDares };
     
