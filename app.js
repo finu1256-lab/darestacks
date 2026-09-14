@@ -289,7 +289,19 @@ function renderPrivacyScreen() {
         </div>
     `;
 }
+<button class="mode-btn personality-mode-btn"
+        onclick="renderPersonalityIntro()">
 
+    <div style="font-size:4rem">🧠</div>
+
+    <h2>Personality Check</h2>
+
+    <p>
+        Answer 25 questions and discover
+        your personality style and traits.
+    </p>
+
+</button>
 btnPrivacy.addEventListener('click', renderPrivacyScreen);
 
 // Initialize app
