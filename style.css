@@ -492,125 +492,171 @@ body {
 }
 }
 /* ==========================================
-   PERSONALITY TEST - COMING SOON
+   PERSONALITY CHECK - BOTTOM SECTION
    ========================================== */
 
-.personality-coming-soon {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+.personality-coming-soon-section {
+    width: 100%;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
 
-    width: min(430px, calc(100% - 30px));
-
+.personality-coming-soon-card {
+    width: min(850px, 100%);
     background: #ffffff;
     color: #111111;
-
-    padding: 35px 25px;
-
     border-radius: 28px;
-
+    padding: 40px 30px;
     text-align: center;
-
-    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.45);
-
-    z-index: 9999;
-
-    display: none;
+    box-sizing: border-box;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
 }
 
-.personality-coming-soon::before {
-    content: "";
-
-    position: fixed;
-
-    left: 50%;
-    top: 50%;
-
-    width: 100vw;
-    height: 100vh;
-
-    transform: translate(-50%, -50%);
-
-    background: rgba(0, 0, 0, 0.65);
-
-    z-index: -1;
-}
-
-.coming-soon-icon {
-    font-size: 4.5rem;
+.personality-coming-soon-icon {
+    font-size: 4rem;
     margin-bottom: 10px;
 }
 
-.coming-soon-badge {
+.personality-coming-soon-badge {
     display: inline-block;
-
     background: #111111;
     color: #ffffff;
-
-    padding: 7px 14px;
-
+    padding: 7px 15px;
     border-radius: 30px;
-
     font-size: 0.75rem;
     font-weight: 800;
-
     letter-spacing: 1px;
-
     margin-bottom: 15px;
 }
 
-.personality-coming-soon h2 {
+.personality-coming-soon-card h2 {
     font-size: 2rem;
     margin: 5px 0 12px;
 }
 
-.personality-coming-soon p {
+.personality-coming-soon-card p {
+    max-width: 650px;
+    margin: 0 auto 25px;
     color: #666666;
-
     line-height: 1.6;
-
-    font-size: 0.95rem;
-
-    margin-bottom: 22px;
 }
 
-.coming-soon-info {
+.personality-features {
     display: flex;
-
     flex-wrap: wrap;
-
     justify-content: center;
-
-    gap: 8px;
-
+    gap: 10px;
     margin-bottom: 25px;
 }
 
-.coming-soon-info span {
+.personality-features span {
     background: #f1f1f1;
-
-    padding: 8px 11px;
-
+    padding: 9px 14px;
     border-radius: 20px;
-
-    font-size: 0.75rem;
-
+    font-size: 0.8rem;
     font-weight: 600;
 }
 
-.coming-soon-close {
+.personality-coming-soon-button {
     border: none;
-
     background: #111111;
     color: #ffffff;
-
-    padding: 13px 25px;
-
+    padding: 14px 28px;
     border-radius: 30px;
-
     font-size: 0.95rem;
     font-weight: 700;
-
     cursor: pointer;
+}
+
+
+/* ==========================================
+   PERSONALITY POPUP
+   ========================================== */
+
+.personality-popup {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.75);
+    z-index: 99999;
+    box-sizing: border-box;
+}
+
+.personality-popup-card {
+    width: min(430px, 100%);
+    background: #ffffff;
+    color: #111111;
+    border-radius: 28px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 25px 80px rgba(0,0,0,0.5);
+    box-sizing: border-box;
+}
+
+.personality-popup-icon {
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+.personality-popup-badge {
+    display: inline-block;
+    background: #111111;
+    color: #ffffff;
+    padding: 7px 15px;
+    border-radius: 30px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.personality-popup-card h2 {
+    font-size: 2rem;
+    margin: 5px 0 12px;
+}
+
+.personality-popup-card p {
+    color: #666666;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.personality-popup-close {
+    border: none;
+    background: #111111;
+    color: #ffffff;
+    padding: 13px 28px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .personality-coming-soon-section {
+        padding: 35px 15px;
+    }
+
+    .personality-coming-soon-card {
+        padding: 30px 20px;
+        border-radius: 22px;
+    }
+
+    .personality-coming-soon-card h2 {
+        font-size: 1.6rem;
+    }
+
+    .personality-coming-soon-icon {
+        font-size: 3.5rem;
+    }
+
 }
